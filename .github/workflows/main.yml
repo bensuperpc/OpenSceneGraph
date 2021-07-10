@@ -26,6 +26,11 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 0
       - name: "Install deps."
-        run: sudo apt-get update && sudo apt-get install -y libsdl2-dev opencl-headers ocl-icd-opencl-dev freeglut3-dev libtiff5-dev zlib1g-dev libjpeg-dev cmake ninja-build build-essential
+        run:  |
+          sudo apt-get update && sudo apt-get install -y \
+          libcurl-dev libgtk2.0-dev libpoppler-glib-dev libgstreamer1.0-dev \
+          libgstreamer-plugins-base1.0-dev libsdl2-dev opencl-headers \
+          ocl-icd-opencl-dev freeglut3-dev libtiff5-dev zlib1g-dev \
+          libjpeg-dev libpq-dev gdal-bin libgdal-dev cmake ninja-build build-essential
       - name: "cmake"
         run: cmake -Bbuild -H. -GNinja && ninja -Cbuild
