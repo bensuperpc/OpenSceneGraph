@@ -33,4 +33,4 @@ jobs:
           ocl-icd-opencl-dev freeglut3-dev libtiff5-dev zlib1g-dev \
           libjpeg-dev libpq-dev gdal-bin libgdal-dev cmake ninja-build build-essential
       - name: "cmake"
-        run: cmake -Bbuild -H. -GNinja && ninja -Cbuild
+        run: cmake -Bbuild -H. -GNinja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} && ninja -Cbuild
